@@ -77,7 +77,25 @@ RUN \
     # Install unfurl
     go get -u github.com/tomnomnom/unfurl && \
     # Install subjs
-    go get -u github.com/lc/subjs
+    go get -u github.com/lc/subjs && \
+    # Install Shuffledns
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns && \
+    # Install Dalfox
+    GO111MODULE=on go get -u -v github.com/hahwul/dalfox && \
+    # Install DnsProbe
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/dnsprobe && \
+    # Install Hakrawler
+    go get -u -v github.com/hakluke/hakrawler && \
+    # Install Naabu
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/naabu/cmd/naabu && \
+    # Install Chaos
+    GO111MODULE=on go get -u github.com/projectdiscovery/chaos-client/cmd/chaos && \
+    # Install Httpx
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/httpx/cmd/httpx && \
+    # Install Crobat
+    go get github.com/cgboal/sonarsearch/crobat && \
+    # Install Github-subdomains
+    go get -u github.com/gwen001/github-subdomains
 
 # Findomain configuration
 ENV findomain_fb_token="ENTER_TOKEN_HERE"
@@ -93,4 +111,4 @@ RUN \
 
 # Change workdir
 WORKDIR /mainData
-ENTRYPOINT ["/mainRecon/mainRecon.sh"]
+#ENTRYPOINT ["/mainRecon/mainRecon.sh"]
