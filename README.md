@@ -98,6 +98,15 @@ You can run the docker image in your PC o [VPS](https://www.digitalocean.com/?re
 | paramspider       |  https://github.com/devanshbatham/ParamSpider         |
 | dirsearch         |  https://github.com/maurosoria/dirsearch              |
 | TelegramBot       |  https://core.telegram.org/bots                       |
+| Shuffledns        |  https://github.com/projectdiscovery/shuffledns       |
+| Dalfox            |  https://github.com/hahwul/dalfox                     |
+| DNSProbe          |  https://github.com/projectdiscovery/dnsprobe         |
+| Naabu             |  https://github.com/projectdiscovery/naabu            |
+| Chaos             |  https://github.com/projectdiscovery/chaos-client     |
+| Httpx             |  https://github.com/projectdiscovery/httpx            |
+| Crobat            |  https://github.com/cgboal/sonarsearch/crobat         |
+| Github-subdomains |  https://github.com/gwen001/github-subdomains         |
+
 
 ## Usage
 ### Prerequisites
@@ -136,6 +145,7 @@ Use image from docker hub: [l34r00t/mainrecon](https://hub.docker.com/u/l34r00t/
     --env findomain_spyse_token="spyse_token" \
     --env findomain_virustotal="virustotal_token" \
     --env findomain_securitytrails_token="securitytrails_token" \
+    --env ENV github_subdomains_token="github_subdomains_token" \
     -v /path/to/local/directory:/mainData --name mainrecon l34r00t/mainrecon -p [--program] <hackerone> -f [--file] targets.txt
 
 ### Considerations to run the container
@@ -154,6 +164,18 @@ Your targets.txt should include a list of domains you're checking and should loo
         hackerone.com
         hackerone-ext-content.com
         hackerone-user-content.com
+
+### config-amass.ini
+
+Copy the config-amass.ini file to the mainData Folder 
+
+### config-naabu.conf
+
+Copy the config-naabu.conf file to the mainData Folder 
+
+### config-subfinder.yaml
+
+Copy the config-subfinder.yaml file to the mainData Folder 
 
 ### Create telegram webhook        
 

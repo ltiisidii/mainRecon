@@ -102,6 +102,9 @@ ENV findomain_fb_token="ENTER_TOKEN_HERE"
 ENV findomain_virustotal_token="ENTER_TOKEN_HERE"
 ENV findomain_securitytrails_token="ENTER_TOKEN_HERE"
 ENV findomain_spyse_token="ENTER_TOKEN_HERE"
+ENV github_subdomains_token="ENTER_TOKEN_HERE"
+ENV bot_token="ENTER_TOKEN_HERE
+ENV chat_ID="ENTER_TOKEN_HERE"
 
 WORKDIR /tools/LinkFinder/
 RUN \
@@ -111,4 +114,4 @@ RUN \
 
 # Change workdir
 WORKDIR /mainData
-#ENTRYPOINT ["/mainRecon/mainRecon.sh"]
+ENTRYPOINT ["/mainRecon/mainRecon.sh"]
