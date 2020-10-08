@@ -96,6 +96,10 @@ RUN \
     go get github.com/cgboal/sonarsearch/crobat && \
     # Install Github-subdomains
     go get -u github.com/gwen001/github-subdomains
+    # Install Nuclei 
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei && \
+    # Install Nuclei-Templates
+    nuclei -update-templates
 
 # Findomain configuration
 ENV findomain_fb_token="ENTER_TOKEN_HERE"
