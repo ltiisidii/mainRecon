@@ -20,16 +20,24 @@ RUN \
     unzip
 
 COPY mainRecon/mainRecon.sh mainRecon/ 
-RUN chmod +x mainRecon/mainRecon.sh
+RUN \
+	chmod +x mainRecon/mainRecon.sh \
+	mkdir -p ~/.config/amass \
+	mkdir -p ~/.config/findomain \
+	mkdir -p ~/.config/naabu \
+	mkdir -p ~/.config/subfinder
 
 # Amass configuration
-COPY configs/amass/config-amass.ini /root/.config/amass/config.ini
+COPY configs/amass/config-amass.ini ~/.config/amass/config.ini
+
+# Findomain configuration
+COPY configs/findomain/config-findomain.toml ~/.config/findomain/config.toml
 
 # Naabu configuration
-COPY configs/naabu/config-naabu.conf /root/.config/subfinder/
+COPY configs/findomain/config-naabu.conf ~/.config/naabu/config.conf
 
 # Subfinder configuration
-COPY configs/subfinder/config-subfinder.yaml /root/.config/subfinder/config.yaml
+COPY configs/subfinder/config-subfinder.yaml ~/.config/subfinder/config.yaml
 
 # Install go
 WORKDIR /tmp
