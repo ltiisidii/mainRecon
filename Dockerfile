@@ -125,6 +125,7 @@ ENV findomain_spyse_token="ENTER_TOKEN_HERE"
 ENV github_subdomains_token="ENTER_TOKEN_HERE"
 ENV bot_token="ENTER_TOKEN_HERE"
 ENV chat_ID="ENTER_TOKEN_HERE"
+ENV CHAOS_KEY="CHAOS_API_KEY"
 
 RUN nuclei -update-templates
 
