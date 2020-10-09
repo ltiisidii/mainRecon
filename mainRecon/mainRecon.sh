@@ -158,6 +158,34 @@ get_paths() {
     find dirsearch/ -size 0 -delete
 }
 
+run_nuclei() {
+	echo -e $red"[+]"$end $bold"Run nuclei templates"$end
+
+    mkdir nuclei
+	
+    echo -e $red"[+]"$end $bold"Nuclei Basic-detections"$end
+	nuclei -l alive.txt -t generic-detections/ -c 50 -o generic-detections.txt
+	echo -e $red"[+]"$end $bold"Nuclei CVEs Detection"$end
+	nuclei -l alive.txt -t cves/ -c 50 -o cve.txt
+	echo -e $red"[+]"$end $bold"Nuclei default-creds Check"$end
+	nuclei -l alive.txt -t default-credentials/ -c 50 -o default-creds.txt
+	echo -e $red"[+]"$end $bold"Nuclei dns check"$end
+	nuclei -l alive.txt -t dns/ -c 50 -o dns.txt
+	echo -e $red"[+]"$end $bold"Nuclei files check"$end
+	nuclei -l alive.txt -t files/ -c 50 -o files.txt
+	echo -e $red"[+]"$end $bold"Nuclei Panels Check"$end
+	nuclei -l alive.txt -t panels/ -c 50 -o panels.txt
+	echo -e $red"[+]"$end $bold"Nuclei Security-misconfiguration Check"$end
+	nuclei -l alive.txt -t security-misconfiguration/ -c 50 -o security-misconfiguration.txt
+	echo -e $red"[+]"$end $bold"Nuclei Technologies Check"$end
+	nuclei -l alive.txt -t technologies/ -c 50 -o technologies.txt
+	echo -e $red"[+]"$end $bold"Nuclei Tokens Check"$end
+	nuclei -l alive.txt -t tokens/ -c 50 -o tokens.txt
+	echo -e $red"[+]"$end $bold"Nuclei Vulnerabilties Check"$end
+	nuclei -l alive.txt -t vulnerabilities/ -c 50 -o vulnerabilties.txt
+	echo -e "[$GREEN+$RESET] Nuclei Scan finished"$end
+}
+
 get_zip() {
     echo -e $red"[+]"$end $bold"Get ZIP"$end
 
@@ -187,6 +215,7 @@ list=(
     get_endpoints
     get_paramspider
     get_paths
+    run_nuclei
     get_zip
     get_message
 )
@@ -223,6 +252,7 @@ done
     get_endpoints
     get_paramspider
     get_paths
+    run_nuclei
     get_zip
     get_message
 )

@@ -22,6 +22,15 @@ RUN \
 COPY mainRecon/mainRecon.sh mainRecon/ 
 RUN chmod +x mainRecon/mainRecon.sh
 
+# Amass configuration
+COPY configs/amass/config-amass.ini /root/.config/amass/config.ini
+
+# Naabu configuration
+COPY configs/naabu/config-naabu.conf /root/.config/subfinder/
+
+# Subfinder configuration
+COPY configs/subfinder/config-subfinder.yaml /root/.config/subfinder/config.yaml
+
 # Install go
 WORKDIR /tmp
 RUN \
@@ -97,9 +106,8 @@ RUN \
     # Install Github-subdomains
     go get -u github.com/gwen001/github-subdomains
     # Install Nuclei 
-    GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei && \
-    # Install Nuclei-Templates
-    nuclei -update-templates
+    GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+
 
 # Findomain configuration
 ENV findomain_fb_token="ENTER_TOKEN_HERE"
@@ -109,6 +117,8 @@ ENV findomain_spyse_token="ENTER_TOKEN_HERE"
 ENV github_subdomains_token="ENTER_TOKEN_HERE"
 ENV bot_token="ENTER_TOKEN_HERE
 ENV chat_ID="ENTER_TOKEN_HERE"
+
+run nuclei -update-templates
 
 WORKDIR /tools/LinkFinder/
 RUN \

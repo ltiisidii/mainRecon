@@ -167,15 +167,15 @@ Your targets.txt should include a list of domains you're checking and should loo
 
 ### config-amass.ini
 
-Copy the config-amass.ini file to the mainData Folder 
+Setup apis in the /configs/amass/config-amass.ini
 
 ### config-naabu.conf
 
-Copy the config-naabu.conf file to the mainData Folder 
+Setting or not the /configs/naabu/config-naabu.conf
 
 ### config-subfinder.yaml
 
-Copy the config-subfinder.yaml file to the mainData Folder 
+Setup apis in the /configs/subfinder/config-subfinder.yaml
 
 ### Create telegram webhook        
 
