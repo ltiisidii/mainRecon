@@ -104,7 +104,7 @@ RUN \
     # Install Crobat
     go get github.com/cgboal/sonarsearch/crobat && \
     # Install Github-subdomains
-    go get -u github.com/gwen001/github-subdomains
+    go get -u github.com/gwen001/github-subdomains && \
     # Install Nuclei 
     GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 
@@ -115,10 +115,10 @@ ENV findomain_virustotal_token="ENTER_TOKEN_HERE"
 ENV findomain_securitytrails_token="ENTER_TOKEN_HERE"
 ENV findomain_spyse_token="ENTER_TOKEN_HERE"
 ENV github_subdomains_token="ENTER_TOKEN_HERE"
-ENV bot_token="ENTER_TOKEN_HERE
+ENV bot_token="ENTER_TOKEN_HERE"
 ENV chat_ID="ENTER_TOKEN_HERE"
 
-run nuclei -update-templates
+RUN nuclei -update-templates
 
 WORKDIR /tools/LinkFinder/
 RUN \
